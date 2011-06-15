@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.foomo.org/zugspitze" xsi:schemaLocation="http://www.foomo.org/zugspitze http://foomo.bestbytes.net/zugspitze/scaffold.xsd">
+	<id>org.foomo.zugspitze.as3.examples</id>
+	<type>Implementation Project</type>
+	<name>AS3 Examples</name>
+	<description>AS3 Examples.</description>
+	<dependencies>
+		<id>org.foomo.zugspitze.core</id>
+		<id>org.foomo.zugspitze.as3</id>
+	</dependencies>
+	<applications>
+
+		<application>
+			<id>org.foomo.zugspitze.as3.examples.applications.simple</id>
+			<name>Simple Application</name>
+			<description>This is a simple mvc application example.</description>
+			<package>org.foomo.zugspitze.examples.applications.simple</package>
+			<sources>
+				<path>src/SimpleApplication.as</path>
+				<path>src/org/foomo/zugspitze/examples/applications/simple</path>
+			</sources>
+		</application>
+
+	</applications>
+</config>
