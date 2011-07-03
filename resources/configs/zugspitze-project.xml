@@ -5,6 +5,7 @@
 	<name>AS3 Examples</name>
 	<description>AS3 Examples.</description>
 	<dependencies>
+		<id>org.foomo.flash</id>
 		<id>org.foomo.zugspitze.core</id>
 		<id>org.foomo.zugspitze.as3</id>
 	</dependencies>
