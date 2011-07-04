@@ -16,7 +16,7 @@
  */
 package
 {
-	import org.foomo.zugspitze.examples.applications.simple.Application;
+	import org.foomo.zugspitze.as3.applications.simple.Application;
 
 	/**
 	 * @link    http://www.foomo.org

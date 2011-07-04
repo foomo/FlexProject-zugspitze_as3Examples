@@ -14,51 +14,52 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * the foomo Opensource Framework. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.foomo.zugspitze.examples.applications.simple.controllers
+package org.foomo.zugspitze.as3.applications.simple
 {
-	import org.foomo.zugspitze.examples.applications.simple.models.ApplicationModel;
-	import org.foomo.zugspitze.examples.applications.simple.views.ApplicationView;
-	import org.foomo.zugspitze.core.ZugspitzeController;
+	import flash.events.Event;
+
+	import org.foomo.zugspitze.as3.applications.simple.controllers.ApplicationController;
+	import org.foomo.zugspitze.as3.applications.simple.models.ApplicationModel;
+	import org.foomo.zugspitze.as3.applications.simple.views.ApplicationView;
+	import org.foomo.zugspitze.as3.core.ZugspitzeSpriteApplication;
 
 	/**
 	 * @link    http://www.foomo.org
 	 * @license http://www.gnu.org/licenses/lgpl.txt
 	 * @author  franklin <franklin@weareinteractive.com>
 	 */
-	public class ApplicationController extends ZugspitzeController
+	public class Application extends ZugspitzeSpriteApplication
 	{
 		//-----------------------------------------------------------------------------------------
-		// ~ Initialization
+		// ~ Constructor
 		//-----------------------------------------------------------------------------------------
 
-		public function initialize():void
+		public function Application()
 		{
-			this.view.init();
-
-			this.model.message = 'Please insert text above';
+			super();
+			this.viewClass = ApplicationView;
+			this.modelClass = ApplicationModel;
+			this.controllerClass = ApplicationController;
+			this.addEventListener(Event.ENTER_FRAME, this.enterFrameHandler);
 		}
 
 		//-----------------------------------------------------------------------------------------
-		// ~ Public methods
+		// ~ Public static application singleton
 		//-----------------------------------------------------------------------------------------
 
-		public function setText(value:String):void
+		public static function get application():Application
 		{
-			this.model.message = value;
+			return Application(_zugspitze.application)
 		}
 
 		//-----------------------------------------------------------------------------------------
-		// ~ Private methods
+		// ~ Private Eventhandler
 		//-----------------------------------------------------------------------------------------
 
-		private function get view():ApplicationView
+		private function enterFrameHandler(event:Event):void
 		{
-			return ApplicationView(this.zugspitze.view);
-		}
-
-		private function get model():ApplicationModel
-		{
-			return ApplicationModel(this.zugspitze.model);
+			this.removeEventListener(Event.ENTER_FRAME, this.enterFrameHandler);
+			ApplicationController(this.controller).initialize();
 		}
 	}
 }
