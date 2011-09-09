@@ -20,7 +20,7 @@ package org.foomo.zugspitze.as3.applications.simple.models
 
 	import flash.events.Event;
 
-	[Event(name="messageChanged", type="flash.events.Event")]
+	[Event(name="messageChange", type="flash.events.Event")]
 
 	/**
 	 * @link    http://www.foomo.org
@@ -57,9 +57,10 @@ package org.foomo.zugspitze.as3.applications.simple.models
 		{
 			if (this._message !== value) {
 				this._message = value;
-				this.dispatchEvent(new Event('messageChanged'));
+				this.dispatchEvent(new Event('messageChange'));
 			}
 		}
+		[Bindable(event="messageChange")]
 		public function get message():String
 		{
 			return this._message;

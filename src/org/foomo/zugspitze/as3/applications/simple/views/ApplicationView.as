@@ -88,7 +88,7 @@ package org.foomo.zugspitze.as3.applications.simple.views
 
 			this.center();
 
-			this.model.addEventListener("messageChanged", this.model_messageChangedHandler);
+			this.model.addEventListener("messageChange", this.model_messageChangeHandler);
 		}
 
 		private function center():void
@@ -106,7 +106,7 @@ package org.foomo.zugspitze.as3.applications.simple.views
 			this.controller.setText(this._textInput.text);
 		}
 
-		private function model_messageChangedHandler(event:Event):void
+		private function model_messageChangeHandler(event:Event):void
 		{
 			this._textField.text = this.model.message;
 		}
